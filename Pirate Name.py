@@ -9,9 +9,13 @@ class piratename():
         self.originalfirst=firstName
         self.originallast=lastName
     def createname(self):
-        x=random.randint(0,len(self.firstlist)-1)
-        y=random.randint(0,len(self.lastlist)-1)
-        return self.firstlist[x]+self.lastlist[y]
+        letter1=self.originalfirst[-1]
+        letter2=self.originallast[0]
+        index1=ord(letter1.upper())-65
+        index2=ord(letter2.upper())-65
+        pirate_first=self.firstlist[index1%len(self.firstlist)]
+        pirate_last=self.lastlist[index2%len(self.lastlist)]
+        return pirate_first+" "+pirate_last
 def showname():
     fn=ftext.get()
     ln=ltext.get()
